@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  margin: 0;
+  padding:0;
+}
+
+@layer utilities {
+  .animate-in {
+    animation: enter 0.2s ease-out;
+  }
+  
+  .slide-in-from-right-full {
+    transform: translateX(100%);
+  }
+  
+  @keyframes enter {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+/* Custom scrollbar */
+html {
+    overflow: -moz-scrollbars-none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+body {
+    overflow-x: hidden;
+}
