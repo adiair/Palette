@@ -8,8 +8,10 @@ export default function Navbar() {
   return (
     <nav className="w-full py-4 mb-12">
       <div className="container flex items-center justify-between sm:justify-around mx-auto px-4 sm:px-6 lg:px-6">
-        <h1 className="text-2xl font-medium text-white">
-        Palettes
+        <h1 className="text-2xl font-semibold text-black">
+          <a href="">
+          Palettes
+          </a>
         </h1>
         <div className="flex items-center gap-3">
           <div className="flex gap-2 sm:gap-4">

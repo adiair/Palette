@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🎨 Pallets
 
 A modern, developer-focused color palette generator built with Next.js and React.
@@ -33,3 +34,4 @@ npm run dev
 
 # Build for production
 npm run build
+=======

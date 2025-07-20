@@ -1,11 +1,13 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
-import { Copy, Download, Shuffle, Palette } from 'lucide-react'
+import { Copy, Download, Shuffle } from 'lucide-react'
 import Header from './components/Header'
 import Navbar from "./components/navbar";
 import PaletteWindow from './components/PaletteWindow'
 import FeatureSection from './components/FeatureSection'
+import Preview from './components/preview'
+
 
 // Utility functions
 const hslToHex = (h, s, l) => {
@@ -28,18 +30,18 @@ const generateRandomColor = () => {
 
 
 const COLOR_NAMES = [
-  'Primary', 'Secondary', 'Accent', 'Success', 'Warning',
-  'Crimson', 'Ocean', 'Forest', 'Sunset', 'Lavender',
-  'Coral', 'Mint', 'Slate', 'Rose', 'Amber',
-  'Indigo', 'Teal', 'Emerald', 'Ruby', 'Sapphire'
+  'Asmita', 'Rangat', 'Soumya', 'Ranjan', 'Vismrit',
+  'Anaahat', 'Neelam', 'Nayan', 'Raina', 'Prabha', 'Nishi',
+  'Rimjhim', 'Ambar', 'Shuktij', 'Nirja', 'Indu', 'Ratna',
+  'Manik', 'Heera', 'Firoza', 'Chandni'
 ]
 
 // Components
 function Button({ onClick, disabled, children, variant = 'primary' }) {
-  const baseClasses = "px-6 py-3 rounded-xl font-semibold flex items-center gap-2 transition-all duration-200 hover:-translate-y-1 disabled:opacity-50"
+  const baseClasses = "px-6 py-3  rounded-xl font-semibold flex items-center gap-2 transition-all duration-200 hover:-translate-y-1 disabled:opacity-50"
   const variants = {
-    primary: "bg-white bg-opacity-20 backdrop-blur-md text-white hover:bg-opacity-30",
-    secondary: "bg-white bg-opacity-10 backdrop-blur-md text-white hover:bg-opacity-20"
+    primary: " text-black bg-white shadow-2xl bg-opacity-10 backdrop-blur-md border border-white/20",
+    secondary: "text-black  bg-white shadow-2xl bg-opacity-10 backdrop-blur-md border border-white/20"
   }
 
   return (
@@ -53,22 +55,17 @@ function Button({ onClick, disabled, children, variant = 'primary' }) {
   )
 }
 
-function ControlPanel({ onGenerate, onExportCSS, onExportJSON, isGenerating }) {
+function ControlPanel({ onGenerate, onExportCSS, isGenerating }) {
   return (
-    <div className="mt-8 flex flex-wrap gap-4 justify-center">
+    <div className="mt-8 flex text-black flex-wrap gap-4 justify-center">
       <Button onClick={onGenerate} disabled={isGenerating}>
         <Shuffle className="w-5 h-5" />
         {isGenerating ? 'Generating...' : 'Generate New'}
       </Button>
-      
-      <Button onClick={onExportCSS} variant="secondary">
-        <Download className="w-5 h-5" />
-        Export CSS
-      </Button>
 
-      <Button onClick={onExportJSON} variant="secondary">
-        <Download className="w-5 h-5" />
-        Export JSON
+      <Button onClick={onExportCSS}  variant="secondary">
+        <Download className="w-5 text-black h-5" />
+        Export CSS
       </Button>
     </div>
   )
@@ -78,12 +75,18 @@ function Notification({ message }) {
   if (!message) return null
 
   return (
-    <div className="fixed top-6 right-6 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg animate-in slide-in-from-right-full duration-300 z-50">
+    <div
+      className="fixed top-6 right-10 z-50 
+             px-6 py-3 rounded-lg shadow-lg text-white 
+             bg-gradient-to-r from-green-500 to-emerald-600 
+             w-[300px] animate-slide-in-right"
+    >
       <div className="flex items-center gap-2">
         <Copy className="w-4 h-4" />
-        {message}
+        <span className="text-sm font-medium">{message}</span>
       </div>
     </div>
+
   )
 }
 
@@ -96,13 +99,14 @@ export default function Home() {
   const generatePalette = useCallback(() => {
     setIsGenerating(true)
     const newPalette = []
-    
+
+    const shuffledNames = [...COLOR_NAMES].sort(() => Math.random() - 0.5)
     for (let i = 0; i < 5; i++) {
       const color = generateRandomColor()
-      const name = COLOR_NAMES[Math.floor(Math.random() * COLOR_NAMES.length)]
+      const name = shuffledNames[i]
       newPalette.push({ id: i, name, hex: color })
     }
-    
+
     setTimeout(() => {
       setPalette(newPalette)
       setIsGenerating(false)
@@ -133,19 +137,8 @@ export default function Home() {
     copyToClipboard(css, 'CSS')
   }
 
-  const exportAsJSON = () => {
-    if (palette.length === 0) return
-    
-    const jsonPalette = {
-      name: 'Generated Palette',
-      colors: palette.reduce((acc, color) => {
-        acc[color.name.toLowerCase()] = color.hex
-        return acc
-      }, {})
-    }
-    
-    copyToClipboard(JSON.stringify(jsonPalette, null, 2), 'JSON')
-  }
+  const [showPreview, setShowPreview] = useState(false)
+
 
   useEffect(() => {
     generatePalette()
@@ -164,32 +157,59 @@ export default function Home() {
   }, [generatePalette])
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-indigo-600 via-purple-600 to-blue-700 flex flex-col items-center p-4 md:p-10">
-      <Navbar />
-      <Header />
-      
-      <PaletteWindow 
-        palette={palette}
-        isGenerating={isGenerating}
-        onColorClick={copyToClipboard}
+
+    <div className="min-h-screen w-full bg-white relative">
+      {/* White Sphere Grid Background ~ Pattern Craft*/}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          background: "white",
+          backgroundImage: `
+        linear-gradient(to right, rgba(71,85,105,0.3) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(71,85,105,0.3) 1px, transparent 1px),
+        radial-gradient(circle at 50% 50%, rgba(139,92,246,0.25) 0%, rgba(139,92,246,0.1) 40%, transparent 80%)
+      `,
+          backgroundSize: "32px 32px, 32px 32px, 100% 100%",
+        }}
       />
-      
-      <ControlPanel 
-        onGenerate={generatePalette}
-        onExportCSS={exportAsCSS}
-        onExportJSON={exportAsJSON}
-        isGenerating={isGenerating}
-      />
-      
-      <FeatureSection />
-      
-      <Notification message={notification} />
-      
-      <footer className="mt-16 text-center text-white opacity-75">
-        <p className="text-sm">
-          Made with ❤️ by <a href=''>adiair</a> • Press spacebar for new palettes
-        </p>
-      </footer>
-    </main>
+      <main className="relative z-10  min-h-screen flex flex-col items-center p-4 md:p-10">
+
+        <Navbar />
+        <Header />
+
+        <FeatureSection />
+
+        <PaletteWindow
+          palette={palette}
+          isGenerating={isGenerating}
+          onColorClick={copyToClipboard}
+        />
+
+        <ControlPanel
+          onGenerate={generatePalette}
+          onExportCSS={exportAsCSS}
+          isGenerating={isGenerating}
+        />
+
+        <br />
+        <Button className="mt-4 bg-white bg-opacity-10 backdrop-blur-md border border-white/20 text-black " onClick={() => setShowPreview(true)} variant="secondary">
+          Show Preview
+        </Button>
+        {
+          showPreview && (
+            <Preview palette={palette} onClose={() => setShowPreview(false)} />
+          )
+        }
+
+        <Notification message={notification} />
+
+        <footer className="mt-5 border-t px-60 pt-5 text-center text-black opacity-85">
+          <p className="">
+            Made with ❤️ by <a href='https://adiair.netlify.app' className='text-lg'>adiair</a>
+          </p>
+        </footer>
+
+      </main>
+    </div>
   )
 }
