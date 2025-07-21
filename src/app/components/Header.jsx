@@ -1,41 +1,43 @@
-import { Palette } from 'lucide-react'
-import { ArrowRight, Zap } from "lucide-react";
-
+import { Palette, ArrowRight, Zap } from 'lucide-react'
 
 export default function Header() {
   return (
-
     <>
-
-      <div className='mb-6 sm:mb-10 md:mb-10 flex justify-center 
-      items-center h-10 px-4 rounded-full gap-3 shadow-md
-      bg-white backdrop-blur-md border-t border-white/20'>
-        <div className="relative flex flex-row h- w-2 ">
+      {/* Notification Badge */}
+      <div
+        className="mb-6 sm:mb-10 flex justify-center items-center h-10 px-4 sm:px-6 rounded-full gap-2 sm:gap-3 shadow-md
+        bg-white/70 backdrop-blur-md border-t border-white/20"
+      >
+        <div className="relative flex h-2 w-2">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-85"></span>
           <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
         </div>
-        <span className="font-medium">Beautify Your App</span>
-        <Zap className="h-3 w-3 text-orange-500" />
-        <span className="hidden sm:inline-flex items-center">
+        <span className="text-sm sm:text-base font-medium">Beautify Your App</span>
+        <Zap className="h-4 w-4 text-orange-500" />
+        <span className="hidden sm:inline-flex items-center text-sm sm:text-base">
           Read More
         </span>
-        <ArrowRight className="h-3 w-3" />
+        <ArrowRight className="h-4 w-4" />
       </div>
 
-      <header className="text-center ">
-        <p className="animate-pulse
-        text-4xl font-bold bg-gradient-to-r from-[#000000] to-[#ffffff] 
-        bg-clip-text text-transparent mb-9">
+      {/* Main Heading */}
+      <header className="text-center px-4 sm:px-6">
+        <p
+          className="animate-pulse text-2xl sm:text-3xl md:text-5xl font-bold 
+          bg-gradient-to-r from-[#000000] to-[#ffffff] bg-clip-text text-transparent mb-6 sm:mb-9"
+        >
           Beautiful Color Palettes
-          <br /> for Developers
+          <br />
+          for Developers
         </p>
       </header>
 
-      <p className="text-center text-black opacity-75 text-2xl">
-        Design your next color<br />
-        story with perfect palettes
-        and inspiring schemes.      </p>
+      {/* Subheading */}
+      <p className="text-center text-black opacity-75 text-base sm:text-lg md:text-xl px-4 sm:px-0">
+        Design your next color
+        <br className="hidden sm:block" />
+        story with perfect palettes and inspiring schemes.
+      </p>
     </>
-
   )
 }

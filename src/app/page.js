@@ -33,7 +33,12 @@ const COLOR_NAMES = [
   'Asmita', 'Rangat', 'Soumya', 'Ranjan', 'Vismrit',
   'Anaahat', 'Neelam', 'Nayan', 'Raina', 'Prabha', 'Nishi',
   'Rimjhim', 'Ambar', 'Shuktij', 'Nirja', 'Indu', 'Ratna',
-  'Manik', 'Heera', 'Firoza', 'Chandni'
+  'Manik', 'Heera', 'Firoza', 'Chandni', 'Saundarya', 'Samay',
+  'Vihan', 'Aarambh', 'Anant', 'Taru', 'Sharad', 'Nilay', 'Tushar',
+  'Tejas', 'Neer', 'Aahan', 'Divit', 'Prithvi', 'Agantuk', 'Kshitij',
+  'Hriday', 'Manthan', 'Samar', 'Uday', 'Anvay', 'Chaitanya', 'Naimish',
+  'Yugant', 'Saanjh', 'Rajhans', 'Darpan', 'Tanmay', 'Vasudha', 'Sharanya',
+  'Jeevan', 'Swara', 'Milan'
 ]
 
 // Components
@@ -63,7 +68,7 @@ function ControlPanel({ onGenerate, onExportCSS, isGenerating }) {
         {isGenerating ? 'Generating...' : 'Generate New'}
       </Button>
 
-      <Button onClick={onExportCSS}  variant="secondary">
+      <Button onClick={onExportCSS} variant="secondary">
         <Download className="w-5 text-black h-5" />
         Export CSS
       </Button>
@@ -203,11 +208,15 @@ export default function Home() {
 
         <Notification message={notification} />
 
-        <footer className="mt-5 border-t px-60 pt-5 text-center text-black opacity-85">
-          <p className="">
-            Made with ❤️ by <a href='https://adiair.netlify.app' className='text-lg'>adiair</a>
+        <footer className="mt-5 border-t px-4 sm:px-20 md:px-40 lg:px-60 pt-5 text-center text-black opacity-85">
+          <p>
+            Made with ❤️ by{" "}
+            <a href="https://adiair.netlify.app" className="text-lg underline underline-offset-4 hover:text-blue-600 transition">
+              adiair
+            </a>
           </p>
         </footer>
+
 
       </main>
     </div>
