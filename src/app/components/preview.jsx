@@ -17,27 +17,27 @@ export default function Preview({ palette, onClose }) {
                 {/* Close Button */}
                 <button
                     onClick={onClose}
-                    className="absolute top-4 right-4 px-4 py-1.5 rounded-full bg-gray-700 hover:bg-red-500 text-white text-xs font-semibold shadow transition duration-200"
+                    className="absolute animate-pulse hover:scale-105 transition-transform duration-300 top-4 right-4 px-4 py-1.5 rounded-full bg-gray-700 hover:bg-red-500 text-white text-sm font-semibold shadow transition duration-200"
                 >
                     ✕ Close
                 </button>
 
                 {/* Navbar */}
-                <nav className="w-full max-w-6xl mb-2 flex flex-row sm:flex-row justify-between px-4 sm:px-8 items-center mt-10">
+                <nav className="w-full max-w-6xl mb-2 flex flex-row sm:flex-row justify-between px-3 sm:px-8 items-center mt-10">
                     <div className="flex items-center mb-4 sm:mb-0">
                         <div
-                            className="w-8 h-8 rounded-full mr-2 border border-white/20 backdrop-blur-md"
+                            className="w-6 h-6 rounded-full mr-1 border border-white/20 backdrop-blur-md"
                             style={{ background: footer }}
                         ></div>
-                        <h1 className="text-sm sm:text-2xl font-bold text-black hover:text-blue-400 transition">
+                        <h1 className="text-lg sm:text-2xl font-bold text-white hover:text-blue-400 transition">
                             Preview : Logo
                         </h1>
                     </div>
-                    <ul className="flex  gap-2 sm:gap-4 text-sm">
+                    <ul className="flex gap-1 sm:gap-4 text-xs">
                         {["Nav-", "-Bar"].map((item, idx) => (
                             <li
                                 key={idx}
-                                className="px-3 py-1  text-xs rounded-full text-black font-semibold shadow-sm border border-white/20 bg-opacity-10 backdrop-blur-md hover:bg-blue-500 hover:text-white transition"
+                                className="px-2 py-1  text-xs rounded-full text-black font-semibold shadow-sm border border-white/20 bg-opacity-10 backdrop-blur-md hover:bg-blue-500 hover:text-white transition"
                                 style={{ background: bgColor }}
                             >
                                 {item}
