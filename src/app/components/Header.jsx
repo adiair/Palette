@@ -24,7 +24,7 @@ export default function Header() {
       <header className="text-center px-4 sm:px-6">
         <p
           className="animate-pulse text-2xl sm:text-3xl md:text-5xl font-bold 
-          bg-gradient-to-r from-[#000000] to-[#ffffff] bg-clip-text text-transparent mb-6 sm:mb-9"
+           mb-6 sm:mb-9"
         >
           Beautiful Color Palettes
           <br />
