@@ -211,7 +211,7 @@ export default function Home() {
         <footer className="mt-5 border-t px-4 sm:px-20 md:px-40 lg:px-60 pt-5 text-center text-black opacity-85">
           <p>
             Made with ❤️ by{" "}
-            <a href="https://adiair.netlify.app" className="text-lg underline underline-offset-4 hover:text-blue-600 transition">
+            <a href="https://adiair.netlify.app" className="text-lg  hover:text-blue-600 transition">
               adiair
             </a>
           </p>
