@@ -17,7 +17,7 @@ export default function Preview({ palette, onClose }) {
                 {/* Close Button */}
                 <button
                     onClick={onClose}
-                    className="absolute animate-pulse hover:scale-105 transition-transform duration-300 top-4 right-4 px-4 py-1.5 rounded-full bg-gray-700 hover:bg-red-500 text-white text-sm font-semibold shadow transition duration-200"
+                    className="absolute animate-pulse hover:scale-105 transition-transform duration-300 top-4 right-4 px-4 py-1.5 rounded-full bg-gray-700 hover:bg-red-500 text-white text-sm font-semibold shadow"
                 >
                     ✕ Close
                 </button>
