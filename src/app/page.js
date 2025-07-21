@@ -38,7 +38,8 @@ const COLOR_NAMES = [
   'Tejas', 'Neer', 'Aahan', 'Divit', 'Prithvi', 'Agantuk', 'Kshitij',
   'Hriday', 'Manthan', 'Samar', 'Uday', 'Anvay', 'Chaitanya', 'Naimish',
   'Yugant', 'Saanjh', 'Rajhans', 'Darpan', 'Tanmay', 'Vasudha', 'Sharanya',
-  'Jeevan', 'Swara', 'Milan'
+  'Jeevan', 'Swara', 'Milan', 'Jhalak', 'Pranay' , 'Suman', 'Sparsh',
+  'Gulshan', 'Saavan'
 ]
 
 // Components
