@@ -16,7 +16,7 @@ A modern, developer-focused color palette generator built with Next.js and React
 - **Framework**: Next.js 14 (App Router)
 - **Frontend**: React 18, Tailwind CSS
 - **Icons**: Lucide React
-- **Deployment**: Vercel (recommended)
+- **Deployment**: Vercel
 
 ## 🛠️ Installation
 
