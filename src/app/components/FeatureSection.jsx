@@ -1,3 +1,6 @@
+import { Redo } from 'lucide-react'
+
+
 export default function FeatureSection() {
   return (
     <div className="mt-10 text-center max-w-5xl mx-auto px-4 sm:px-6">
@@ -26,7 +29,7 @@ export default function FeatureSection() {
           </div>
           <div className="text-left">
             <h3 className="text-sm sm:text-base font-semibold text-gray-900">Live Preview</h3>
-            <p className="text-xs sm:text-sm text-gray-500 leading-snug">Apply During Selection</p>
+            <p className="text-xs sm:text-sm text-gray-500 leading-snug">See in Action</p>
           </div>
         </div>
 
@@ -43,27 +46,9 @@ export default function FeatureSection() {
           </div>
         </div>
       </div>
+      <Redo className="absolute rotate-45 hidden sm:block md:h-40 md:w-40" />
 
-      {/* Bottom Section */}
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 md:gap-12 mt-8 mb-14 pt-6 sm:pt-8 border-t transition-all duration-300">
-        {/* Feature 1 */}
-        <div className="text-center">
-          <div className="text-lg sm:text-xl md:text-2xl font-bold">Explore</div>
-          <div className="text-xs sm:text-sm text-gray-600">Colors</div>
-        </div>
-        {/* Feature 2 */}
-        <div className="text-center">
-          <div className="text-lg sm:text-xl md:text-2xl font-bold">Make</div>
-          <div className="text-xs sm:text-sm text-gray-600">Palette</div>
-        </div>
-        {/* Feature 3 */}
-        <div className="text-center">
-          <div className="text-lg sm:text-xl md:text-2xl font-bold">Next.js</div>
-          <div className="text-xs sm:text-sm text-gray-600">& Tailwind</div>
-        </div>
-      </div>
-
-      <p className="font-medium text-black text-sm sm:text-base opacity-75 mb-5 mt-4">
+      <p className="font-medium text-black text-sm sm:text-base opacity-75 mb-5 mt-14">
         Press Spacebar to generate
       </p>
     </div>

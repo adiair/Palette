@@ -1,4 +1,4 @@
-import { Palette, ArrowRight, Zap } from 'lucide-react'
+import {ArrowRight, Zap } from 'lucide-react'
 
 export default function Header() {
   return (

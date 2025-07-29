@@ -183,7 +183,7 @@ export default function Home() {
         <Header />
 
         <FeatureSection />
-
+        
         <PaletteWindow
           palette={palette}
           isGenerating={isGenerating}
@@ -207,6 +207,24 @@ export default function Home() {
         }
 
         <Notification message={notification} />
+
+        <div className="flex flex-row items-center justify-center gap-4 mt-8 mb-5 pt-6 sm:pt-8  transition-all duration-300">
+        {/* Feature 1 */}
+        <div className="text-center">
+          <div className="text-lg sm:text-xl md:text-2xl font-bold">Pick</div>
+          {/* <div className="text-xs sm:text-sm text-gray-600">Pick</div> */}
+        </div>
+        {/* Feature 2 */}
+        <div className="text-center">
+          <div className="text-lg sm:text-xl md:text-2xl font-bold">- Blend -</div>
+          {/* <div className="text-xs sm:text-sm text-gray-600">Blend</div> */}
+        </div>
+        {/* Feature 3 */}
+        <div className="text-center">
+          <div className="text-lg sm:text-xl md:text-2xl font-bold">Share</div>
+          {/* <div className="text-xs sm:text-sm text-gray-600">Share</div> */}
+        </div>
+      </div>
 
         <footer className="mt-5 border-t px-4 sm:px-20 md:px-40 lg:px-60 pt-5 text-center text-black opacity-85">
           <p>

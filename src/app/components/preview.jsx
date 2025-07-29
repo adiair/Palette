@@ -1,9 +1,8 @@
-import { ArrowRight, Rocket, Slack } from "lucide-react";
-
+import { ArrowRight, Redo, Rocket, Slack } from "lucide-react";
 
 export default function Preview({ palette, onClose }) {
     if (!palette || palette.length < 5) return null;
-
+    
     const bgColor = palette[0].hex;
     const headingColor = palette[2].hex;
     const buttonColor = palette[1].hex;
@@ -11,8 +10,8 @@ export default function Preview({ palette, onClose }) {
     const footer = palette[4].hex;
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/10 backdrop-blur-sm p-4">
-            <section className="relative rounded-2xl shadow-xl border-4 border-white/80 p-5 max-h-[90vh] overflow-y-auto w-full max-w-xl bg-black/40 backdrop-blur-lg">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+            <section className="relative rounded-2xl shadow-xl border-4 border-white/80 p-5 max-h-[90vh] overflow-y-auto w-full max-w-xl bg-white/20 backdrop-blur-lg">
 
                 {/* Close Button */}
                 <button
@@ -26,11 +25,11 @@ export default function Preview({ palette, onClose }) {
                 <nav className="w-full max-w-6xl mb-2 flex flex-row sm:flex-row justify-between px-3 sm:px-8 items-center mt-10">
                     <div className="flex items-center mb-4 sm:mb-0">
                         <div
-                            className="w-6 h-6 rounded-full mr-1 border border-white/20 backdrop-blur-md"
+                            className=" h-7 mr-2 pr-2 pl-2 rounded-md text-white font-semibold shadow-sm border border-white/20 bg-opacity-10 hover:bg-blue-500"
                             style={{ background: footer }}
-                        ></div>
+                        >Logo</div>
                         <h1 className="text-lg sm:text-2xl font-bold text-white hover:text-blue-400 transition">
-                            Preview : Logo
+                            Preview
                         </h1>
                     </div>
                     <ul className="flex gap-1 sm:gap-4 text-xs">
@@ -46,6 +45,7 @@ export default function Preview({ palette, onClose }) {
                     </ul>
                 </nav>
 
+                    
                 {/* Hero Section */}
                 <div
                     className="w-full max-w-3xl p-4 sm:p-10 rounded-2xl opacity-90 bg-opacity-80 shadow-md backdrop-blur-sm border border-white/20"
