@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 🎨 Pallets
 
 A modern, developer-focused color palette generator built with Next.js and React.
@@ -14,10 +13,11 @@ A modern, developer-focused color palette generator built with Next.js and React
 
 ## 🚀 Tech Stack
 
+- **Palette**:
 - **Framework**: Next.js 14 (App Router)
 - **Frontend**: React 18, Tailwind CSS
 - **Icons**: Lucide React
-- **Deployment**: Vercel (recommended)
+- **Deployment**: Vercel
 
 ## 🛠️ Installation
 
@@ -35,3 +35,5 @@ npm run dev
 # Build for production
 npm run build
 =======
+
+
