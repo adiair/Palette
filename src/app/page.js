@@ -62,7 +62,7 @@ function Button({ onClick, disabled, children, variant = 'primary' }) {
 
 function ControlPanel({ onGenerate, onExportCSS, isGenerating }) {
   return (
-    <div className="mt-8 flex text-black flex-wrap gap-4 justify-center">
+    <div className="mt-4 flex text-black flex-wrap gap-4 justify-center">
       <Button onClick={onGenerate} disabled={isGenerating}>
         <Shuffle className="w-5 h-5" />
         {isGenerating ? 'Generating...' : 'Generate New'}
@@ -186,10 +186,10 @@ export default function Home() {
         <select
           value={harmony}
           onChange={(e) => setHarmony(e.target.value)}
-          className="border rounded p-2 bg-white/60 backdrop-blur-md"
+          className="bg-white p-2 rounded-lg bg-opacity-40 backdrop-blur-lg border mt-6 border-white/20 text-black"
         >
           <option value="random">Random</option>
-          <option value="analogous">Analogous</option>
+          <option value="analogous">Blended</option>
           <option value="monochromatic">Monochromatic</option>
         </select>
 
@@ -200,7 +200,7 @@ export default function Home() {
         />
 
         <br />
-        <Button className="mt-4 bg-white bg-opacity-10 backdrop-blur-md border border-white/20 text-black " onClick={() => setShowPreview(true)} variant="secondary">
+        <Button className="mt-2 bg-white bg-opacity-10 backdrop-blur-md border border-white/20 text-black " onClick={() => setShowPreview(true)} variant="secondary">
           Show Preview
         </Button>
         {showPreview && (
