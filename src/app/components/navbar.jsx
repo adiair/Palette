@@ -5,7 +5,7 @@ import { Github, Twitter } from "lucide-react"
 export default function Navbar() {
   return (
     <nav className="w-full py-4 mb-12">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6">
+      <div className="max-w-4xl mx-auto flex items-center justify-between px-4 sm:px-6">
         {/* Logo */}
         <h1 className="text-xl sm:text-2xl font-bold text-black tracking-tight">
           <a href="/">Palettes</a>
@@ -14,7 +14,7 @@ export default function Navbar() {
         {/* Socials */}
         <div className="flex items-center gap-3 sm:gap-4">
           <a
-            href="https://twitter.com/adiair_twt"
+            href="https://github.com/adiair/Palette"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Twitter"
@@ -27,9 +27,9 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="rounded-full p-2 hover:bg-gray-100 transition-colors"
-          >
-            <Github className="h-5 w-5 sm:h-6 sm:w-6 text-black/80 hover:text-gray-900" strokeWidth={1.5} />
+            className="rounded-full flex gap-2 p-2 bg-black/20 text-black shadow-lg px-4 hover:bg-yellow-100 transition-colors"
+          >Star Here
+            <Github className="h-5 w-5 sm:h-6 sm:w-6 text-black/80 hover:text-black-900 hover:bg-yellow-100" strokeWidth={1.5} />
           </a>
         </div>
       </div>
