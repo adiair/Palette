@@ -7,7 +7,7 @@ import Navbar from "./components/navbar";
 import PaletteWindow from './components/PaletteWindow'
 import FeatureSection from './components/FeatureSection'
 import Preview from './components/preview'
-
+import { generatePalette } from "./utils/paletteGenerator";
 
 // Utility functions
 const hslToHex = (h, s, l) => {
@@ -28,7 +28,6 @@ const generateRandomColor = () => {
   return hslToHex(hue, saturation, lightness)
 }
 
-
 const COLOR_NAMES = [
   'Asmita', 'Rangat', 'Soumya', 'Ranjan', 'Vismrit',
   'Anaahat', 'Neelam', 'Nayan', 'Raina', 'Prabha', 'Nishi',
@@ -38,7 +37,7 @@ const COLOR_NAMES = [
   'Tejas', 'Neer', 'Aahan', 'Divit', 'Prithvi', 'Agantuk', 'Kshitij',
   'Hriday', 'Manthan', 'Samar', 'Uday', 'Anvay', 'Chaitanya', 'Naimish',
   'Yugant', 'Saanjh', 'Rajhans', 'Darpan', 'Tanmay', 'Vasudha', 'Sharanya',
-  'Jeevan', 'Swara', 'Milan', 'Jhalak', 'Pranay' , 'Suman', 'Sparsh',
+  'Jeevan', 'Swara', 'Milan', 'Jhalak', 'Pranay', 'Suman', 'Sparsh',
   'Gulshan', 'Saavan'
 ]
 
@@ -101,23 +100,20 @@ export default function Home() {
   const [palette, setPalette] = useState([])
   const [isGenerating, setIsGenerating] = useState(false)
   const [notification, setNotification] = useState('')
+  const [harmony, setHarmony] = useState("random");
+  const [showPreview, setShowPreview] = useState(false)
 
-  const generatePalette = useCallback(() => {
-    setIsGenerating(true)
-    const newPalette = []
+  const generatePaletteHandler = useCallback(() => {
+    setIsGenerating(true);
 
-    const shuffledNames = [...COLOR_NAMES].sort(() => Math.random() - 0.5)
-    for (let i = 0; i < 5; i++) {
-      const color = generateRandomColor()
-      const name = shuffledNames[i]
-      newPalette.push({ id: i, name, hex: color })
-    }
+    const shuffledNames = [...COLOR_NAMES].sort(() => Math.random() - 0.5);
+    const newPalette = generatePalette(harmony, shuffledNames); 
 
     setTimeout(() => {
-      setPalette(newPalette)
-      setIsGenerating(false)
-    }, 300)
-  }, [])
+      setPalette(newPalette);
+      setIsGenerating(false);
+    }, 300);
+  }, [harmony]);
 
   const copyToClipboard = async (text, type = 'color') => {
     try {
@@ -143,27 +139,23 @@ export default function Home() {
     copyToClipboard(css, 'CSS')
   }
 
-  const [showPreview, setShowPreview] = useState(false)
-
-
   useEffect(() => {
-    generatePalette()
-  }, [generatePalette])
+    generatePaletteHandler()
+  }, [generatePaletteHandler])
 
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.code === 'Space' && !e.target.closest('button')) {
         e.preventDefault()
-        generatePalette()
+        generatePaletteHandler()
       }
     }
 
     document.addEventListener('keydown', handleKeyDown)
     return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [generatePalette])
+  }, [generatePaletteHandler])
 
   return (
-
     <div className="min-h-screen w-full bg-white relative">
       {/* White Sphere Grid Background ~ Pattern Craft*/}
       <div
@@ -184,15 +176,25 @@ export default function Home() {
         <Header />
 
         <FeatureSection />
-        
+
         <PaletteWindow
           palette={palette}
           isGenerating={isGenerating}
           onColorClick={copyToClipboard}
         />
 
+        <select
+          value={harmony}
+          onChange={(e) => setHarmony(e.target.value)}
+          className="border rounded p-2 bg-white/60 backdrop-blur-md"
+        >
+          <option value="random">Random</option>
+          <option value="analogous">Analogous</option>
+          <option value="monochromatic">Monochromatic</option>
+        </select>
+
         <ControlPanel
-          onGenerate={generatePalette}
+          onGenerate={generatePaletteHandler}
           onExportCSS={exportAsCSS}
           isGenerating={isGenerating}
         />
@@ -201,31 +203,23 @@ export default function Home() {
         <Button className="mt-4 bg-white bg-opacity-10 backdrop-blur-md border border-white/20 text-black " onClick={() => setShowPreview(true)} variant="secondary">
           Show Preview
         </Button>
-        {
-          showPreview && (
-            <Preview palette={palette} onClose={() => setShowPreview(false)} />
-          )
-        }
+        {showPreview && (
+          <Preview palette={palette} onClose={() => setShowPreview(false)} />
+        )}
 
         <Notification message={notification} />
 
         <div className="flex flex-row items-center justify-center gap-4 mt-8 mb-5 pt-6 sm:pt-8  transition-all duration-300">
-        {/* Feature 1 */}
-        <div className="text-center">
-          <div className="text-lg sm:text-xl md:text-2xl font-bold">Pick</div>
-          {/* <div className="text-xs sm:text-sm text-gray-600">Pick</div> */}
+          <div className="text-center">
+            <div className="text-lg sm:text-xl md:text-2xl font-bold">Pick</div>
+          </div>
+          <div className="text-center">
+            <div className="text-lg sm:text-xl md:text-2xl font-bold">- Blend -</div>
+          </div>
+          <div className="text-center">
+            <div className="text-lg sm:text-xl md:text-2xl font-bold">Share</div>
+          </div>
         </div>
-        {/* Feature 2 */}
-        <div className="text-center">
-          <div className="text-lg sm:text-xl md:text-2xl font-bold">- Blend -</div>
-          {/* <div className="text-xs sm:text-sm text-gray-600">Blend</div> */}
-        </div>
-        {/* Feature 3 */}
-        <div className="text-center">
-          <div className="text-lg sm:text-xl md:text-2xl font-bold">Share</div>
-          {/* <div className="text-xs sm:text-sm text-gray-600">Share</div> */}
-        </div>
-      </div>
 
         <footer className="mt-5 border-t px-4 sm:px-20 md:px-40 lg:px-60 pt-5 text-center text-black opacity-85">
           <p>
@@ -235,8 +229,6 @@ export default function Home() {
             </a>
           </p>
         </footer>
-
-
       </main>
     </div>
   )
