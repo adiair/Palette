@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <>
       {/* Notification Badge */}
-      <div
+      <a href="https://github.com/adiair/Palette"
         className="mb-6 sm:mb-10 flex justify-center items-center h-10 px-4 sm:px-6 rounded-full gap-2 sm:gap-3 shadow-md
         bg-white/70 backdrop-blur-md border-t border-white/20"
       >
@@ -18,7 +18,7 @@ export default function Header() {
           Read More
         </span>
         <ArrowRight className="h-4 w-4" />
-      </div>
+      </a>
 
       {/* Main Heading */}
       <header className="text-center px-4 sm:px-6">
