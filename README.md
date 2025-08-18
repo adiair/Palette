@@ -29,29 +29,6 @@ With one-click copy, live preview, and CSS export, it’s the perfect tool to sp
 
 ## 📸 Preview
 
-*(Add screenshots or GIFs of your app here for better visualization.)*
-
----
-
-## 📂 Project Structure
-
-/app
-
-├── components/
-
-│ ├── ui/ # Reusable UI components
-
-│ ├── Header # App header
-
-│ ├── Footer # Footer with stats
-
-│ └── ...
-
-├── page.js # Main entry page
-
-/public
-
-└── favicon.ico
 
 
 ---
