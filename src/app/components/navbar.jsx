@@ -27,7 +27,7 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="rounded-full flex gap-2 p-2 bg-black/20 text-black shadow-lg px-4 hover:bg-yellow-100 transition-colors"
+            className="rounded-full flex gap-2 p-2 bg-black/10 text-black shadow-lg px-4 hover:bg-yellow-100 transition-colors"
           >Star Here
             <Github className="h-5 w-5 sm:h-6 sm:w-6 text-black/80 hover:text-black-900 hover:bg-yellow-100" strokeWidth={1.5} />
           </a>
