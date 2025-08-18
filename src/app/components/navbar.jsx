@@ -6,12 +6,12 @@ export default function Navbar() {
   return (
     <nav className="w-full py-4 mb-12">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6">
-        {/* Logo / Brand */}
+        {/* Logo */}
         <h1 className="text-xl sm:text-2xl font-bold text-black tracking-tight">
           <a href="/">Palettes</a>
         </h1>
 
-        {/* Social Links */}
+        {/* Socials */}
         <div className="flex items-center gap-3 sm:gap-4">
           <a
             href="https://twitter.com/adiair_twt"
