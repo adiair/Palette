@@ -32,14 +32,25 @@ With one-click copy, live preview, and CSS export, it’s the perfect tool to sp
 *(Add screenshots or GIFs of your app here for better visualization.)*
 
 ---
+
+## 📂 Project Structure
+
 /app
+
 ├── components/
+
 │ ├── ui/ # Reusable UI components
+
 │ ├── Header # App header
+
 │ ├── Footer # Footer with stats
+
 │ └── ...
+
 ├── page.js # Main entry page
+
 /public
+
 └── favicon.ico
 
 
@@ -50,27 +61,23 @@ With one-click copy, live preview, and CSS export, it’s the perfect tool to sp
 Follow these steps to set up the project locally:
 
 ### 1. Clone the repo
-
+```bash
 git clone https://github.com/your-username/palette.git
 cd palette
-
+```
 ### 2. Install dependencies
+```bash
 npm install
-
+```
 ### 3. Run the development server
+```bash
 npm run dev
+```
 
 📦 Deployment
 
 This project is deployed with Netlify → palette2.netlify.app
 
-To deploy your own version:
-
-Push your project to GitHub
-
-Link the repo to Netlify or Vercel
-
-Deploy 🚀
 
 📝 License
 
@@ -78,9 +85,5 @@ This project is licensed under the MIT License – free to use, modify, and dist
 
 👨‍💻 Author
 
-Made with ❤️ by Aditya Kokashemake
-
-
-Now open http://localhost:3000 in your browser 🚀.
-## 📂 Project Structure
+Made with ❤️ by Aditya Kokashe
 
